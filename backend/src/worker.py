@@ -2,6 +2,7 @@ from datetime import datetime
 
 import websockets
 
+from src.inc.repository import client_repository
 from config import logger
 
 
@@ -30,7 +31,11 @@ async def working_with_client(client: websockets.WebSocketClientProtocol, path: 
         SendMessage message="Text message"                      # Send message on chat
         """
         message = await client.recv()
-        method, params = message.split(" ")
+        message = message.split(" ")
+        if len(message) == 2:
+            method, params = message.split(" ")
+        else:
+            method, params = message, "_"
         if method == "RegNewUser":
             username = params.replace("username=", "")[1:-1]
             logger.error(f"NEW USER: {username}")
