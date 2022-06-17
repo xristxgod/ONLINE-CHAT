@@ -3,7 +3,7 @@ from typing import Optional
 
 import websockets
 
-from src.services.worker import working_with_client
+from src.worker import working_with_client
 from src.settings import HOST, PORT
 from config import logger
 

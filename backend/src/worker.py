@@ -41,5 +41,3 @@ async def working_with_client(client: websockets.WebSocketClientProtocol, path: 
             logger.error(f"{datetime.now()} | MESSAGE: {message}")
         else:
             logger.error("THIS METHOD WAS NOT FOUND")
-
-        # logger.error(f"Data: {message}")
